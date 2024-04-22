@@ -2,8 +2,14 @@ import * as React from "react";
 import { Text, StyleSheet, View } from "react-native";
 import { Image } from "expo-image";
 import { Color, FontFamily, FontSize, Border } from "../GlobalStyles";
+import { TouchableOpacity } from 'react-native';
+import {NavigationProp} from "@react-navigation/core";
+import {useNavigation} from "@react-navigation/native";
+
 
 const TelaInicial = () => {
+
+    const navigation: NavigationProp<any> = useNavigation();
   return (
     <View style={styles.telaInicial}>
       <View style={[styles.fundoTela, styles.fundoTelaLayout]}>
@@ -21,21 +27,25 @@ você tem a`}</Text>
           source={require("../assets/image-32.png")}
         />
       </View>
-      <View style={[styles.sejaUmHelp, styles.cadastroLayout]}>
-        <Text style={[styles.sejaUmHelp1, styles.sejaUmHelp1Typo]}>
-          SEJA UM HELP
-        </Text>
-      </View>
-      <View style={[styles.cadastroPedinte, styles.cadastroLayout]}>
-        <Image
-          style={[styles.cadastroPedinteChild, styles.cadastroLayout]}
-          contentFit="cover"
-          source={require("../assets/rectangle-1.png")}
-        />
-        <Text style={[styles.soliciteUmServio, styles.sejaUmHelp1Typo]}>
-          SOLICITE UM SERVIÇO
-        </Text>
-      </View>
+        <TouchableOpacity onPress={() => navigation.navigate('CadastroMotorista4')}>
+            <View style={[styles.sejaUmHelp, styles.cadastroLayout]}>
+                <Text style={[styles.sejaUmHelp1, styles.sejaUmHelp1Typo]}>
+                    SEJA UM HELP
+                </Text>
+            </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('CadastroPedinte4')}>
+            <View style={[styles.cadastroPedinte, styles.cadastroLayout]}>
+                <Image
+                    style={[styles.cadastroPedinteChild, styles.cadastroLayout]}
+                    contentFit="cover"
+                    source={require("../assets/rectangle-1.png")}
+                />
+                <Text style={[styles.soliciteUmServio, styles.sejaUmHelp1Typo]}>
+                    SOLICITE UM SERVIÇO
+                </Text>
+            </View>
+        </TouchableOpacity>
       <View style={styles.loginInfo}>
         <Text style={styles.login}>Login</Text>
         <Image
@@ -55,7 +65,7 @@ você tem a`}</Text>
 
 const styles = StyleSheet.create({
   fundoTelaLayout: {
-    width: 485,
+    width: 500,
     position: "absolute",
   },
   helpcarTypo: {
@@ -67,7 +77,7 @@ const styles = StyleSheet.create({
   },
   cadastroLayout: {
     height: 45,
-    width: 239,
+    width: 300,
     position: "absolute",
   },
   sejaUmHelp1Typo: {
@@ -96,8 +106,8 @@ const styles = StyleSheet.create({
   },
   helpcar: {
     height: "9.49%",
-    width: "76.81%",
-    top: "13.63%",
+    width: "100%",
+    top: "15%",
     fontSize: 35,
     lineHeight: 42,
     color: Color.typographyText1,
@@ -105,8 +115,8 @@ const styles = StyleSheet.create({
   },
   subttulo: {
     height: "9.25%",
-    width: "87.32%",
-    top: "90.75%",
+    width: "80%",
+    top: "100%",
     left: "12.68%",
     lineHeight: 28,
     fontSize: FontSize.size_6xl,
@@ -114,7 +124,7 @@ const styles = StyleSheet.create({
   },
   ttulo: {
     left: 105,
-    width: 276,
+    width: 300,
     height: 411,
     top: 0,
     position: "absolute",
@@ -125,15 +135,15 @@ const styles = StyleSheet.create({
     left: 0,
   },
   fundoTela: {
-    top: 48,
-    left: -62,
+    top: 150,
+    left: -40,
     height: 443,
   },
   sejaUmHelp1: {
     width: 130,
   },
   sejaUmHelp: {
-    top: 568,
+    top: 668,
     backgroundColor: "rgba(255, 255, 255, 0.72)",
     borderStyle: "solid",
     borderColor: Color.colorCornflowerblue,
@@ -152,14 +162,15 @@ const styles = StyleSheet.create({
     height: 45,
     width: 239,
     left: 0,
-    top: 0,
+    top: 100
   },
   soliciteUmServio: {
-    top: 11,
-    left: 24,
+    top: 111,
+    left: 60,
     position: "absolute",
   },
   cadastroPedinte: {
+    alignItems: "center",
     top: 506,
     left: 61,
   },

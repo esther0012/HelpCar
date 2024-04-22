@@ -4,6 +4,8 @@ import { Image } from "expo-image";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation, ParamListBase } from "@react-navigation/native";
 import { FontFamily, FontSize, Color } from "../GlobalStyles";
+import { TextInput } from 'react-native';
+
 
 const CadastroPedinte1 = () => {
   const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
@@ -11,7 +13,6 @@ const CadastroPedinte1 = () => {
   return (
     <View style={styles.cadastroPedinte04}>
       <View style={styles.dadosLogin}>
-        <Text style={[styles.titulo, styles.tituloTypo]}>BEM-VINDO!</Text>
         <Text style={[styles.subtitulo, styles.tituloTypo]}>PAGAMENTO</Text>
         <View style={styles.setas}>
           <Pressable
@@ -41,15 +42,16 @@ const CadastroPedinte1 = () => {
           source={require("../assets/caixa-texto2.png")}
         />
         <View style={[styles.titulosCaixaTexto, styles.caixaPosition]}>
-          <Text style={[styles.nomeCompleto, styles.nomeCompletoTypo]}>
-            NOME COMPLETO
-          </Text>
-          <Text style={[styles.nmeroDoCarto, styles.nomeCompletoTypo]}>
+          <TextInput
+              style={[styles.nomeCompleto, styles.nomeCompletoTypo]}
+              placeholder="NOME COMPLETO"
+          />
+          <TextInput style={[styles.nmeroDoCarto, styles.nomeCompletoTypo]}>
             NÚMERO DO CARTÃO
-          </Text>
-          <Text style={[styles.dataDeExpirao, styles.cvvTypo]}>
+          </TextInput>
+          <TextInput style={[styles.dataDeExpirao, styles.cvvTypo]}>
             DATA DE EXPIRAÇÃO
-          </Text>
+          </TextInput>
           <Text style={[styles.cvv, styles.cvvTypo]}>{`CVV
 `}</Text>
         </View>
